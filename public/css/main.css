@@ -1,0 +1,11 @@
+body, html{
+	font-family: 'Century Gothic' !important;
+}
+@font-face {
+  font-family: 'Century Gothic';
+  src: url('../fonts/ufonts.com_century-gothic.ttf') format('truetype');
+}
+
+.navbar-static-top {
+  margin-bottom: 19px;
+}
