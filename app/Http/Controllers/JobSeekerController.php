@@ -10,6 +10,7 @@ use App\Jobseeker;
 use App\User;
 use App\Job;
 use App\Application;
+use App\UserPermission;
 
 class JobSeekerController extends Controller
 {
@@ -67,9 +68,18 @@ class JobSeekerController extends Controller
         'email' => $request->email,
         'password' => bcrypt($password)
         );
+
        $user = User::create($user);
 
-       if($user):
+       Log::info('user created: '.print_r($user,true));
+
+       //create the user in the user permissions table;
+        $user_permissions = new UserPermission;
+        $user_permissions->user_id = $user->id;
+        $user_permissions->permission_id = 2;
+        $user_permission_id = $user_permissions->save();
+
+       if($user = 1 and $user_permission_id = 1):
             Log::info('password for : '.$username.' is '.$password);
        endif;
 
@@ -88,7 +98,10 @@ class JobSeekerController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('jobseeker.view',array(
+            'profile' => Jobseeker::getJobseekerProfile($id)
+            )
+        );
     }
 
     /**

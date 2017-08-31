@@ -22,38 +22,58 @@
   <body>
 
     <!-- Static navbar -->
-    <nav class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="{{url('/')}}" style="border-right:1px solid #ccc">Ufanisi Jobs</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown">
-              <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employers<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="{{url('/jobs/create')}}">Create Job Post</a></li>
-                <li><a href="{{url('/jobs/applications')}}">Job Seeker Applications</a></li>
+      <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{url('/')}}" style="border-right:1px solid #ccc">Ufanisi Jobs</a>
+          </div>
+          @if(Auth::id())
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                @if(strtolower($data['role']->name) == 'employer')
+                <li class="dropdown">
+                  <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employers<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{{url('/jobs/create')}}">Create Job Post</a></li>
+                    <li><a href="{{url('/jobs/applications')}}">Job Seeker Applications</a></li>
+                  </ul>
+                </li>
+                @endif
+                @if(strtolower($data['role']->name) == 'jobseekers')
+                <li class="dropdown">
+                  <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Jobseekers<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{{url('/jobseeker/create')}}">Register</a></li>
+                    <li><a href="{{url('/jobseeker/')}}">My Applications</a></li>
+                  </ul>
+                </li>
+                @endif;
+                <li><a href="{{url('/jobs/')}}">Job Posts</a></li>
+                <li class="dropdown">
+                  <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{{url('/logout')}}">Logout</a></li>
+                  </ul>
+                </li>
               </ul>
-            </li>
-            <li class="dropdown">
-              <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Jobseekers<span class="caret"></span></a>
-              <ul class="dropdown-menu">
+            </div>
+          @else
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
                 <li><a href="{{url('/jobseeker/create')}}">Register</a></li>
-                <li><a href="{{url('/jobseeker/')}}">My Applications</a></li>
+                <li><a href="{{url('/jobs/')}}">Find a Job</a></li>
+                <li><a href="{{url('/login')}}">Login</a></li>
               </ul>
-            </li>
-            <li><a href="{{url('/jobs/')}}">Job Posts</a></li>
-          </ul>
+            </div>
+          @endif
         </div>
-      </div>
-    </nav>
+      </nav>
 
 
     <div class="container">

@@ -7,6 +7,7 @@
     <thead>
       <tr>
         <th>Job Title</th>
+        <th>Applicant</th>
         <th>Industry</th>
         <th>Start Date</th>
         <th>End Date</th>
@@ -17,6 +18,7 @@
       @foreach($applications as $key => $value)
       <tr>
         <td><a href="/jobs/{{$value->id}}/view">{{$value->title}}</a></td>
+        <td><a href="/jobseeker/{{$value->applicant_id}}/view">{{$value->applicant}}</a></td>
         <td>{{$value->industry}}</td>
         <td>{{$value->start_date}}</td>
         <td>{{$value->end_date}}</td>

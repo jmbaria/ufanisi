@@ -14,10 +14,12 @@ $(function(){
 				// change the button text to 'Invited'
 				$('.btn-'+response.id).text('Invited');
 				$('.btn-'+response.id).removeClass('btn-info');
+				$('.btn-'+response.id).removeClass('btn-danger');
 				$('.btn-'+response.id).addClass('btn-success');
 
-				$('#btn-'+response.id).addClass('btn-success');
 				$('#btn-'+response.id).removeClass('btn-info');
+				$('#btn-'+response.id).removeClass('btn-danger');
+				$('#btn-'+response.id).addClass('btn-success');
 			}
 		});
 
@@ -39,10 +41,12 @@ $(function(){
 				// change the button text to 'Invited'
 				$('.btn-'+response.id).text('Rejected');
 				$('.btn-'+response.id).removeClass('btn-info');
+				$('.btn-'+response.id).removeClass('btn-success');
 				$('.btn-'+response.id).addClass('btn-danger');
 
-				$('#btn-'+response.id).addClass('btn-danger');
 				$('#btn-'+response.id).removeClass('btn-info');
+				$('#btn-'+response.id).removeClass('btn-success');
+				$('#btn-'+response.id).addClass('btn-danger');
 			}
 		});
 
