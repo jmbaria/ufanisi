@@ -62,11 +62,11 @@ class JobSeekerController extends Controller
         $username = explode(' ', $request->name);
         $username = strtolower($username[0]);
 
-        $password = rand(5555,999);
+        $password = '0000';
         $user = array(
         'name' => $username,
         'email' => $request->email,
-        'password' => bcrypt(0000)
+        'password' => bcrypt($password)
         );
 
        $user = User::create($user);
