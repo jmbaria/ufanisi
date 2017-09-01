@@ -1,4 +1,11 @@
-# ufanisi
+# Ufanisi Job Site
+### pre-requisites
+* PHP >= 7.0.0
+* OpenSSL PHP Extension
+* PDO PHP Extension
+* Mbstring PHP Extension
+* Tokenizer PHP Extension
+* XML PHP Extension
 
 clone the repo
 
