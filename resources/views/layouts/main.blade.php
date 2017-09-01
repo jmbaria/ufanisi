@@ -53,7 +53,7 @@
                     <li><a href="{{url('/jobseeker/')}}">My Applications</a></li>
                   </ul>
                 </li>
-                @endif;
+                @endif
                 <li><a href="{{url('/jobs/')}}">Job Posts</a></li>
                 <li class="dropdown">
                   <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account<span class="caret"></span></a>
@@ -75,11 +75,9 @@
         </div>
       </nav>
 
-
-    <div class="container">
       {{Session::get('message')}}
       @yield('content')
-    </div> 
+      
     <!-- /container -->
 
 
