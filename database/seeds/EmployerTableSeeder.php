@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
 class EmployerTableSeeder extends Seeder
@@ -11,8 +12,11 @@ class EmployerTableSeeder extends Seeder
      */
     public function run()
     {
+
+    	DB::raw('truncate users');
+
         DB::table('users')->insert([
-             array('name' => 'Employer','email' => 'admin@ufanisi.co','password' => 'bcrypt("!empl0y")','remember_token' => 1)
+             array('name' => 'Employer','email' => 'admin@ufanisi.co','password' => bcrypt('!empl0y'),'remember_token' => 1)
              ]);
 
 		DB::table('user_permissions')->insert([
