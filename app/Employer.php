@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,9 +14,8 @@ class Employer extends Model
 	    	->leftJoin('jobs as c','c.id','=','a.job_id')
 	    	->leftJoin('industries as b','b.id','=','c.industry_id')
 	    	->leftJoin('jobseekers as d','d.id','=','a.jobseeker_id')
-	    	->where('c.employer_id','=',1)
+	    	->where('c.employer_id','=',Auth::id())
     		->get();
-
     	return $applications;
     }
 }

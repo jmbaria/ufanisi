@@ -45,7 +45,7 @@
                   </ul>
                 </li>
                 @endif
-                @if(strtolower($data['role']->name) == 'jobseekers')
+                @if(strtolower($data['role']->name) == 'jobseeker')
                 <li class="dropdown">
                   <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Jobseekers<span class="caret"></span></a>
                   <ul class="dropdown-menu">

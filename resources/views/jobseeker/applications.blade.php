@@ -20,7 +20,7 @@
         <td>{{$value->industry}}</td>
         <td>{{$value->start_date}}</td>
         <td>{{$value->end_date}}</td>
-        <td>{{$value->status ==0 ? 'Pending' : 'Successful'}}</td>
+        <td>{{$value->status ==0 ? 'Pending' : ($value->status ==1 ? 'Invited for Interview' : 'Rejected')}}</td>
       </tr>
       @endforeach
     </tbody>

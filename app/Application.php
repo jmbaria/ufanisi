@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,7 +13,7 @@ class Application extends Model
 	    	->select('a.id','a.title','b.name as industry','a.start_date','a.end_date','c.status')
 	    	->leftJoin('industries as b','a.industry_id','=','b.id')
 	    	->leftJoin('applications as c','a.id','=','c.job_id')
-	    	->where('c.jobseeker_id','=',1)
+	    	->where('c.jobseeker_id','=',Auth::id())
     		->get();
 
     	return $applications; 

@@ -18,6 +18,11 @@ class AppServiceProvider extends ServiceProvider
             $role = UserPermission::getUserRole();
             $view->with('data', array('role' => $role));
         });
+
+        view()->composer('jobs.index', function($view) {
+            $role = UserPermission::getUserRole();
+            $view->with('data', array('role' => $role));
+        });
     }
 
     /**
