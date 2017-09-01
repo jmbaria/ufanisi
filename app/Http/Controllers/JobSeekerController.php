@@ -66,7 +66,7 @@ class JobSeekerController extends Controller
         $user = array(
         'name' => $username,
         'email' => $request->email,
-        'password' => bcrypt($password)
+        'password' => bcrypt(0000)
         );
 
        $user = User::create($user);
