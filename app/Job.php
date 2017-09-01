@@ -12,7 +12,6 @@ class Job extends Model
 	    	->select('a.id','a.title','b.name as industry','a.start_date','a.end_date')
 	    	->leftJoin('industries as b','a.industry_id','=','b.id')
     		->get();
-        $q = DB::getQueryLog();
     	return $jobs; 
     }
 
